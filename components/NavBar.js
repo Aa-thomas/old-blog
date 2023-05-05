@@ -22,15 +22,18 @@ const NavBar = ({}) => {
 							</Link>
 						</li>
 						<li>
-							<Link href={`/${session.user.email}`}>
-								{/* add user photo */}
-								*Profile Photo Goes Here*
-								{/* <img src={} /> */}
+							<Link href={`/${session.user.name}`}>
+								<img
+									src={session.user.image}
+									alt={`link to the profile of ${session.user.name} `}
+								/>
 							</Link>
 						</li>
 						<li>
 							<button onClick={() => signOut()}>Sign out</button>
 						</li>
+
+						<p>Welcome, {session.user.name} !</p>
 					</>
 				)}
 
