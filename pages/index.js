@@ -12,7 +12,6 @@ export default function Home() {
 			</Head>
 			<main className={styles.main}>
 				<h1> TomasAI - Homepage </h1>
-				<NavBar />
 			</main>
 		</>
 	);

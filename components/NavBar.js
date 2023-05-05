@@ -24,8 +24,12 @@ const NavBar = ({}) => {
 						<li>
 							<Link href={`/${session.user.email}`}>
 								{/* add user photo */}
+								*Profile Photo Goes Here*
 								{/* <img src={} /> */}
 							</Link>
+						</li>
+						<li>
+							<button onClick={() => signOut()}>Sign out</button>
 						</li>
 					</>
 				)}
@@ -34,7 +38,7 @@ const NavBar = ({}) => {
 				{!session && (
 					<li>
 						<Link href="/enter">
-							<button>Log in</button>
+							<button onClick={() => signIn()}>Log in</button>
 						</Link>
 					</li>
 				)}

@@ -7,7 +7,7 @@ const login = () => {
 		return (
 			<>
 				<div>Welcome, {session.user.email}! You are signed in!</div>
-				<button onClick={() => signOut()}>Sign Out</button>
+				
 			</>
 		);
 	} else {
