@@ -1,7 +1,8 @@
 import Link from 'next/link';
+import { useSession, signIn, signOut } from 'next-auth/react';
 
 const NavBar = ({}) => {
-	const { user, username } = {};
+	const { data: session } = useSession();
 
 	return (
 		<nav>
@@ -13,7 +14,7 @@ const NavBar = ({}) => {
 				</li>
 
 				{/* User is signed in and has username */}
-				{username && (
+				{session && (
 					<>
 						<li>
 							<Link href="/admin">
@@ -21,15 +22,16 @@ const NavBar = ({}) => {
 							</Link>
 						</li>
 						<li>
-							<Link href={`/${username}`}>
-								<img src={user?.photoURL} />
+							<Link href={`/${session.user.email}`}>
+								{/* add user photo */}
+								{/* <img src={} /> */}
 							</Link>
 						</li>
 					</>
 				)}
 
 				{/* User is not signed in */}
-				{!username && (
+				{!session && (
 					<li>
 						<Link href="/enter">
 							<button>Log in</button>
