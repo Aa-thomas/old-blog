@@ -8,7 +8,7 @@ const prisma = new PrismaClient();
 
 export default NextAuth({
 	adapter: PrismaAdapter(prisma),
-	secret: process.env.NEXTAUTH_SECRET,
+	secret: process.env.SECRET,
 	theme: 'auto',
 	providers: [
 		GoogleProvider({
