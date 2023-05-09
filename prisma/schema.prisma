@@ -10,36 +10,81 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
 model User {
-  id           String @id @default(uuid())
-  name         String
-  email        String @unique
-  age          Int
-  role         Role   @default(USER)
-  writtenPost  Post[] @relation("writtenPosts")
-  favoritePost Post[] @relation("favoritePosts")
+  id            String    @id @default(cuid())
+  name          String?
+  email         String?   @unique
+  emailVerified DateTime?
+  image         String?
+  accounts      Account[]
+  sessions      Session[]
 }
 
-model Post {
-  id            Int       @id @default(autoincrement())
-  rating        Float
-  createdAt     DateTime  @default(now())
-  updatedAt     DateTime  @updatedAt
-  author        User      @relation("writtenPosts", fields: [authorId], references: [id])
-  authorId      String
-  favoritedBy   User?     @relation("favoritePosts", fields: [favoritedById], references: [id])
-  favoritedById String?
-  Category      Category? @relation(fields: [categoryId], references: [id])
-  categoryId    String?
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
 }
 
-model Category {
-  id   String @id @default(uuid())
-  name String
-  post Post[]
-}
+// model User {
+//   id           String @id @default(uuid())
+//   name         String
+//   email        String @unique
+//   age          Int
+//   role         Role   @default(USER)
+//   writtenPost  Post[] @relation("writtenPosts")
+//   favoritePost Post[] @relation("favoritePosts")
+// }
 
-enum Role {
-  USER
-  ADMIN
-}
+// model Post {
+//   id            Int       @id @default(autoincrement())
+//   rating        Float
+//   createdAt     DateTime  @default(now())
+//   updatedAt     DateTime  @updatedAt
+//   author        User      @relation("writtenPosts", fields: [authorId], references: [id])
+//   authorId      String
+//   favoritedBy   User?     @relation("favoritePosts", fields: [favoritedById], references: [id])
+//   favoritedById String?
+//   Category      Category? @relation(fields: [categoryId], references: [id])
+//   categoryId    String?
+// }
+
+// model Category {
+//   id   String @id @default(uuid())
+//   name String
+//   post Post[]
+// }
+
+// enum Role {
+//   USER
+//   ADMIN
+// }
