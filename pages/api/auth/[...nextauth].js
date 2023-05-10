@@ -7,9 +7,12 @@ import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
 export default NextAuth({
-	adapter: PrismaAdapter(PrismaClient),
+	adapter: PrismaAdapter(prisma),
 	secret: process.env.SECRET,
 	theme: 'auto',
+	session: {
+		strategy: 'database',
+	},
 	providers: [
 		GoogleProvider({
 			clientId: process.env.GOOGLE_CLIENT_ID,
