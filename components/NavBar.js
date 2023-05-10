@@ -32,6 +32,7 @@ const NavBar = ({}) => {
 						<li>
 							<button onClick={() => signOut()}>Sign out</button>
 						</li>
+						{console.log(session.user)}
 
 						<p>Welcome, {session.user.name} !</p>
 					</>
