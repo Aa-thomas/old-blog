@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { useSession, signIn, signOut } from 'next-auth/react';
+import styles from '../styles/NavBar.module.scss';
 
 const NavBar = ({}) => {
 	const { data: session } = useSession();
@@ -24,8 +25,13 @@ const NavBar = ({}) => {
 						<li>
 							<Link href={`/${session.user.name}`}>
 								<img
-									src={session.user.image}
-									alt={`link to the profile of ${session.user.name} `}
+									src={
+										session.user.image
+											? session.user.image
+											: `https://api.dicebear.com/6.x/initials/svg?seed=${session.user.name}&radius=50`
+									}
+									alt="user avatar"
+									className={styles.avatar}
 								/>
 							</Link>
 						</li>
