@@ -36,7 +36,9 @@ const NavBar = ({}) => {
 							</Link>
 						</li>
 						<li>
-							<button onClick={() => signOut()}>Sign out</button>
+							<button onClick={async () => await signOut()}>
+								Sign out
+							</button>
 						</li>
 						{console.log(session.user)}
 
@@ -48,7 +50,9 @@ const NavBar = ({}) => {
 				{!session && (
 					<li>
 						<Link href="/enter">
-							<button onClick={() => signIn()}>Log in</button>
+							<button onClick={async () => await signIn()}>
+								Log in
+							</button>
 						</Link>
 					</li>
 				)}
