@@ -48,7 +48,7 @@ const NavBar = ({}) => {
 				{/* User is not signed in */}
 				{!user && (
 					<li>
-						<a href="/api/auth/login">Login</a>
+						<Link href="/api/auth/login">Login</Link>
 					</li>
 				)}
 			</ul>
