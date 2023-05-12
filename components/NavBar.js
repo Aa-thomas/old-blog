@@ -1,9 +1,10 @@
 import Link from 'next/link';
-import { useSession, signIn, signOut } from 'next-auth/react';
 import styles from '../styles/NavBar.module.scss';
+import { useUser } from '@auth0/nextjs-auth0/client';
 
 const NavBar = ({}) => {
-	const { data: session } = useSession();
+	const { user } = useUser();
+	console.log(user);
 
 	return (
 		<nav>
@@ -15,7 +16,7 @@ const NavBar = ({}) => {
 				</li>
 
 				{/* User is signed in and has username */}
-				{session && (
+				{user && (
 					<>
 						<li>
 							<Link href="/admin">
@@ -23,12 +24,12 @@ const NavBar = ({}) => {
 							</Link>
 						</li>
 						<li>
-							<Link href={`/${session.user.name}`}>
+							<Link href={`/${user?.name}`}>
 								<img
 									src={
-										session.user.image
-											? session.user.image
-											: `https://api.dicebear.com/6.x/initials/svg?seed=${session.user.name}&radius=50`
+										user?.image
+											? user?.image
+											: `https://api.dicebear.com/6.x/initials/svg?seed=${user?.name}&radius=50`
 									}
 									alt="user avatar"
 									className={styles.avatar}
@@ -36,24 +37,18 @@ const NavBar = ({}) => {
 							</Link>
 						</li>
 						<li>
-							<button onClick={async () => await signOut()}>
-								Sign out
-							</button>
+							<Link href="/api/auth/logout">Logout</Link>
 						</li>
-						{console.log(session.user)}
+						{/* {console.log(user?)} */}
 
-						<p>Welcome, {session.user.name} !</p>
+						<p>Welcome, {user?.name} !</p>
 					</>
 				)}
 
 				{/* User is not signed in */}
-				{!session && (
+				{!user && (
 					<li>
-						<Link href="/enter">
-							<button onClick={async () => await signIn()}>
-								Log in
-							</button>
-						</Link>
+						<a href="/api/auth/login">Login</a>
 					</li>
 				)}
 			</ul>
