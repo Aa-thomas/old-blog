@@ -2,12 +2,7 @@ const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 
 async function main() {
-	const user = await prisma.star.create({
-		data: {
-			name: 'John Doe',
-			constellation: 'brampton',
-		},
-	});
+	const user = await prisma.user.findMany();
 
 	console.log(user);
 }
