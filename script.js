@@ -1,17 +1,15 @@
-// const { PrismaClient } = require('@prisma/client');
-// const prisma = new PrismaClient();
+const { PrismaClient } = require('@prisma/client');
+const prisma = new PrismaClient();
 
-// async function main() {
-// 	const user = await prisma.user.findMany();
+async function main(user, context, callback) {
+	callback(null, user, context);
+}
 
-// 	prisma.user.deleteMany();
-// }
-
-// // automatically disconnects prisma client when done
-// main()
-// 	.catch((e) => {
-// 		console.error(e.message);
-// 	})
-// 	.finally(async () => {
-// 		await prisma.$disconnect();
-// 	});
+// automatically disconnects prisma client when done
+main()
+	.catch((e) => {
+		console.error(e.message);
+	})
+	.finally(async () => {
+		await prisma.$disconnect();
+	});

@@ -27,8 +27,8 @@ const NavBar = ({}) => {
 							<Link href={`/${user?.name}`}>
 								<img
 									src={
-										user?.image
-											? user?.image
+										user?.picture
+											? user?.picture
 											: `https://api.dicebear.com/6.x/initials/svg?seed=${user?.name}&radius=50`
 									}
 									alt="user avatar"
@@ -39,7 +39,6 @@ const NavBar = ({}) => {
 						<li>
 							<Link href="/api/auth/logout">Logout</Link>
 						</li>
-						{/* {console.log(user?)} */}
 
 						<p>Welcome, {user?.name} !</p>
 					</>
