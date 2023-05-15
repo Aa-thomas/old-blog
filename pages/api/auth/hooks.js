@@ -3,14 +3,16 @@ const prisma = new PrismaClient();
 
 module.exports = async (req, res) => {
 	try {
-		const { email } = JSON.parse(req.body);
+		const { email, secret } = JSON.parse(req.body);
 		if (secret === process.env.AUTH0_HOOK_SECRET) {
-			const user = await prisma.user.create({
+			await prisma.user.create({
 				data: {
 					email: email,
 				},
 			});
 			console.log('created user');
+		} else {
+			console.log('You failed to send your secret');
 		}
 	} catch (err) {
 		console.log(err);
@@ -18,6 +20,4 @@ module.exports = async (req, res) => {
 		await prisma.$disconnect();
 		res.send({ received: true });
 	}
-
-	// create user in prisma
 };

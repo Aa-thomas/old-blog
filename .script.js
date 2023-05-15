@@ -1,8 +1,16 @@
 const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 
-async function main(user, context, callback) {
-	callback(null, user, context);
+async function main() {
+	const user = await prisma.user.create({
+		data: {
+			name: 'bob',
+			email: 'test@email.com',
+			posts: {
+				create: { title: 'Hello World', content: 'This is the content' },
+			},
+		},
+	});
 }
 
 // automatically disconnects prisma client when done
