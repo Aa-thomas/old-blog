@@ -6,12 +6,8 @@ import NavBar from '../components/NavBar';
 export default function Home() {
 	return (
 		<>
-			<Head>
-				<title>TomasAI - Home</title>
-				<link rel="icon" href="/favicon.ico" />
-			</Head>
 			<main className={styles.main}>
-				<h1> TomasAI - Homepage </h1>
+				<h1 className="text-xl md:text-4xl"> TomasAI - Homepage </h1>
 			</main>
 		</>
 	);
