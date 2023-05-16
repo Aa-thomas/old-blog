@@ -1,16 +1,16 @@
 import { Toaster } from 'react-hot-toast';
 import NavBar from '../components/NavBar';
-import { UserProvider } from '@auth0/nextjs-auth0/client';
+import { SessionProvider } from 'next-auth/react';
 import '../styles/globals.scss';
 
 export default function App({ Component, pageProps, session }) {
 	return (
 		<>
-			<UserProvider>
+			<SessionProvider>
 				<NavBar />
 				<Component {...pageProps} />;
 				<Toaster />
-			</UserProvider>
+			</SessionProvider>
 		</>
 	);
 }

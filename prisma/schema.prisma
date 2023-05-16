@@ -94,9 +94,3 @@ model Like {
 
   @@id([userId, commentId])
 }
-
-model Star {
-  id   String @id @default(cuid())
-  name String
-  size String
-}
