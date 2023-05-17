@@ -2,6 +2,7 @@ import { Toaster } from 'react-hot-toast';
 import NavBar from '../components/NavBar';
 import { SessionProvider } from 'next-auth/react';
 import '../styles/globals.scss';
+import Head from 'next/head';
 
 export default function App({ Component, pageProps, session }) {
 	return (
@@ -10,7 +11,7 @@ export default function App({ Component, pageProps, session }) {
 				<title>TomasAI</title>
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
-			<SessionProvider>
+			<SessionProvider session={session}>
 				<NavBar />
 				<Component {...pageProps} />;
 				<Toaster />

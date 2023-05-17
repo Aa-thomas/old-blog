@@ -5,8 +5,6 @@ import { useSession, signIn, signOut } from 'next-auth/react';
 const NavBar = ({}) => {
 	const { data: session } = useSession();
 
-	console.log(session);
-
 	return (
 		<nav className="flex justify-between wrapper">
 			<Link href="/">
@@ -18,11 +16,11 @@ const NavBar = ({}) => {
 				{session && (
 					<>
 						<Link
-							href="/admin"
+							href="/blog/admin"
 							className="bg-blue-600 rounded dsohfeiuwieuwnfiuwenwefefwefwfrwfrrfrwriuew">
 							<button>Write Posts</button>
 						</Link>
-						<Link href={`/${session.user.name}`}>
+						<Link href={`/blog/${session.user.name}`}>
 							<img
 								src={
 									session.user.image
