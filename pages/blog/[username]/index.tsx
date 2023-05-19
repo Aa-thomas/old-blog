@@ -1,5 +1,5 @@
-import PostFeed from '@components/PostFeed';
-import UserProfile from '@components/UserProfile';
+import PostFeed from '../../../components/PostFeed';
+import UserProfile from '../../../components/UserProfile';
 
 const UserProfilePage = ({ user, posts }) => {
 	return (

@@ -20,12 +20,12 @@ const NavBar = ({}) => {
 							className="bg-blue-600 rounded dsohfeiuwieuwnfiuwenwefefwefwfrwfrrfrwriuew">
 							<button>Write Posts</button>
 						</Link>
-						<Link href={`/blog/${session.user.name}`}>
+						<Link href={`/blog/${session.user?.name}`}>
 							<img
 								src={
-									session.user.image
+									session.user?.image
 										? session.user.image
-										: `https://api.dicebear.com/6.x/initials/svg?seed=${session.user.name}&radius=50`
+										: `https://api.dicebear.com/6.x/initials/svg?seed=${session.user?.name}&radius=50`
 								}
 								alt="user avatar"
 								className={styles.avatar}
