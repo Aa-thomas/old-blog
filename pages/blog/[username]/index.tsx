@@ -10,7 +10,7 @@ interface UserProfilePageProps {
 
 const UserProfilePage = ({ posts }: UserProfilePageProps) => {
 	const { data: session } = useSession();
-	const user = session?.user;
+	const authUser = session?.user;
 
 	console.log('UserProfilePage', posts.length);
 
@@ -30,20 +30,11 @@ export const getServerSideProps = async () => {
 		include: {
 			author: true,
 			likes: true,
+			comments: true,
 		},
 	});
 
-	const serializedPosts: Post[] = posts.map((post) => {
-		return {
-			...post,
-			createdAt: post.createdAt.toString(),
-			updatedAt: post.updatedAt.toString(),
-		};
-	});
-
-	// console.log('server', typeof serializedPosts);
-
-	return { props: { posts: serializedPosts } };
+	return { props: { posts } };
 };
 
 export default UserProfilePage;

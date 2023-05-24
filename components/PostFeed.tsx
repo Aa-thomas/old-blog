@@ -13,7 +13,7 @@ const PostFeed = ({ posts }: PostFeedProps) => {
 		<div>
 			{posts.length > 0 ? (
 				posts.map((post) => (
-					<PostItem key={post.id} post={post} likes={post.likes.length} />
+					<PostItem key={post.id} post={post} likes={post.likes} />
 				))
 			) : (
 				<p>No posts to display</p>
