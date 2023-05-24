@@ -2,7 +2,6 @@ import PostFeed from '../../../components/PostFeed';
 import UserProfile from '../../../components/UserProfile';
 import { useSession } from 'next-auth/react';
 import { PrismaClient } from '@prisma/client';
-import type { Post } from '@prisma/client';
 
 interface UserProfilePageProps {
 	posts: Post[];

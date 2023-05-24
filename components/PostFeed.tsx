@@ -1,6 +1,5 @@
 import { useSession } from 'next-auth/react';
 import PostItem from './PostItem';
-import type { Post } from '@prisma/client';
 
 interface PostFeedProps {
 	posts: Post[];

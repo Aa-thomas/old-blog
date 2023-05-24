@@ -1,4 +1,3 @@
-import type { Post, Like } from '@prisma/client';
 import { PrismaClient } from '@prisma/client';
 import { useState } from 'react';
 
@@ -16,7 +15,7 @@ const PostItem = ({ post, likes }: PostItemProps) => {
 	return (
 		<div>
 			<h2>{post.title}</h2>
-			<h3>By {post.authorId}</h3>
+			<h3>By {post.author.name}</h3>
 
 			<p>{post.content}</p>
 
