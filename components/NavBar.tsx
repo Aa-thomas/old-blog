@@ -1,8 +1,9 @@
 import Link from 'next/link';
 import styles from '../styles/NavBar.module.scss';
 import { useSession, signIn, signOut } from 'next-auth/react';
+import { FunctionComponent } from 'react';
 
-const NavBar = ({}) => {
+export const NavBar: FunctionComponent = () => {
 	const { data: session } = useSession();
 
 	return (

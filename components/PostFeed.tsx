@@ -1,11 +1,12 @@
 import { useSession } from 'next-auth/react';
-import PostItem from './PostItem';
+import { PostItem } from './PostItem';
+import { FunctionComponent } from 'react';
 
-interface PostFeedProps {
+export type PostFeedProps = {
 	posts: Post[];
-}
+};
 
-const PostFeed = ({ posts }: PostFeedProps) => {
+export const PostFeed: FunctionComponent<PostFeedProps> = ({ posts }) => {
 	console.log('PostFeed', posts.length);
 
 	return (
