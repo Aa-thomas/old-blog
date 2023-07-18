@@ -1,5 +1,10 @@
 'use client';
-import React, { ChangeEvent, FunctionComponent, useState } from 'react';
+import React, {
+	ChangeEvent,
+	FormEvent,
+	FunctionComponent,
+	useState,
+} from 'react';
 
 export const CreatePost: FunctionComponent<{ posts: Post[] }> = ({ posts }) => {
 	const [formData, setFormData] = useState({
@@ -17,7 +22,7 @@ export const CreatePost: FunctionComponent<{ posts: Post[] }> = ({ posts }) => {
 		}));
 	};
 
-	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+	const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 		try {
 			const newPost = await fetch('/api/createPost', {

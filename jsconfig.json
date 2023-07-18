@@ -1,0 +1,18 @@
+{
+   "compilerOptions": {
+      "baseUrl": "./",
+      "paths": {
+         "@components/*":["components/*"],
+         "@styles/*":["styles/*"],
+         "@lib/*" : ["lib/*"],
+         "@types/*" : ["types/*"],
+      }
+   },
+
+   // Provides intelisense for testing with jest
+   "typeAcquisition": {
+      "include": [
+         "jest"
+      ]
+   }
+}
