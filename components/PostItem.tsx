@@ -1,13 +1,13 @@
 import { PrismaClient } from '@prisma/client';
-import { useState } from 'react';
+import { FunctionComponent, useState } from 'react';
 
-interface PostItemProps {
+export type PostItemProps = {
 	post: Post;
 	likes: Like[];
 	key: String;
-}
+};
 
-const PostItem = ({ post, likes }: PostItemProps) => {
+export const PostItem: FunctionComponent<PostItemProps> = ({ post, likes }) => {
 	const wordCount = post?.content.trim().split(/\s+/g).length;
 	const minutesToRead = (wordCount / 100 + 1).toFixed(0);
 	const postedAt = new Date(post.createdAt);
@@ -30,5 +30,3 @@ const PostItem = ({ post, likes }: PostItemProps) => {
 		</div>
 	);
 };
-
-export default PostItem;

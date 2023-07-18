@@ -1,6 +1,7 @@
 import { useSession } from 'next-auth/react';
+import { FunctionComponent } from 'react';
 
-const UserProfile = ({}) => {
+export const UserProfile: FunctionComponent = () => {
 	const { data: session } = useSession();
 	const user = session?.user;
 
@@ -17,5 +18,3 @@ const UserProfile = ({}) => {
 		</div>
 	);
 };
-
-export default UserProfile;
