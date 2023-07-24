@@ -32,7 +32,7 @@ export const CreatePost: FunctionComponent<{ posts: Post[] }> = ({ posts }) => {
 	return (
 		<form onSubmit={handleSubmit}>
 			<div className="flex flex-col">
-				<label className="mb-2 mr-2 resize-both" htmlFor="title">
+				<label className="resize-both mb-2 mr-2" htmlFor="title">
 					Title
 				</label>
 				<input
@@ -45,7 +45,7 @@ export const CreatePost: FunctionComponent<{ posts: Post[] }> = ({ posts }) => {
 				/>
 			</div>
 			<div className="flex flex-col">
-				<label className="mb-2 mr-2 resize-both" htmlFor="content">
+				<label className="resize-both mb-2 mr-2" htmlFor="content">
 					Content
 				</label>
 				<input
@@ -57,7 +57,7 @@ export const CreatePost: FunctionComponent<{ posts: Post[] }> = ({ posts }) => {
 					onChange={handleChange}
 				/>
 			</div>
-			<button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ml-2">
+			<button className="ml-2 rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700">
 				Post!
 			</button>
 		</form>

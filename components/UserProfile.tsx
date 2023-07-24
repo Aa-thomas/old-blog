@@ -6,12 +6,12 @@ export const UserProfile: FunctionComponent = () => {
 	const user = session?.user;
 
 	return (
-		<div className="flex flex-col justify-center mt-10">
+		<div className="mt-10 flex flex-col justify-center">
 			{user?.image && (
 				<img
 					src={user?.image}
 					alt="user profile"
-					className="h-16 w-16 rounded-full mx-auto"
+					className="mx-auto h-16 w-16 rounded-full"
 				/>
 			)}
 			<p className="py-5">{user?.name}</p>

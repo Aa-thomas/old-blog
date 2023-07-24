@@ -18,7 +18,7 @@ export const NavBar: FunctionComponent = () => {
 					<>
 						<Link
 							href="/blog/admin"
-							className="bg-blue-600 rounded dsohfeiuwieuwnfiuwenwefefwefwfrwfrrfrwriuew">
+							className="bg-blue-600 rounded">
 							<button>Write Posts</button>
 						</Link>
 						<Link href={`/blog/${session.user?.name}`}>

@@ -21,6 +21,7 @@
     "next-auth": "^4.22.1",
     "next-superjson-plugin": "^0.5.8",
     "nodemon": "^2.0.22",
+    "prettier-plugin-tailwindcss": "^0.4.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-hot-toast": "^2.4.1",
