@@ -18,8 +18,8 @@ const Home: FunctionComponent<{ posts: Post[] }> = ({ posts }) => {
 
 	return (
 		<>
-			<main className="w-90 max-w-1200 flex flex-col justify-center items-center">
-				<h1 className="flex flex-col justify-center items-center mb-10">
+			<main className="w-90 max-w-1200 flex flex-col items-center justify-center">
+				<h1 className="mb-10 flex flex-col items-center justify-center">
 					TomasAI - Homepage
 				</h1>
 				{posts.map((post) => (

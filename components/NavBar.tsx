@@ -7,7 +7,7 @@ export const NavBar: FunctionComponent = () => {
 	const { data: session } = useSession();
 
 	return (
-		<nav className="flex justify-between wrapper">
+		<nav className="wrapper flex justify-between">
 			<Link href="/">
 				<button>Feed</button>
 			</Link>
@@ -16,9 +16,7 @@ export const NavBar: FunctionComponent = () => {
 				{/* User is signed in and has username */}
 				{session && (
 					<>
-						<Link
-							href="/blog/admin"
-							className="bg-blue-600 rounded">
+						<Link href="/blog/admin" className="rounded bg-blue-600">
 							<button>Write Posts</button>
 						</Link>
 						<Link href={`/blog/${session.user?.name}`}>
